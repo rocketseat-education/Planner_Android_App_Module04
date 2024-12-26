@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<resources>
+    <dimen name="xxxs_1dp">1dp</dimen>
+    <dimen name="xxs_2dp">2dp</dimen>
+    <dimen name="xs_4dp">4dp</dimen>
+    <dimen name="sm_8dp">8dp</dimen>
+    <dimen name="md_16dp">16dp</dimen>
+    <dimen name="xm_32dp">32dp</dimen>
+    <dimen name="xxm_40dp">40dp</dimen>
+    <dimen name="xxxm_48dp">48dp</dimen>
+    <dimen name="lg_54dp">54dp</dimen>
+    <dimen name="xl_64dp">64dp</dimen>
+    <dimen name="xxl_72dp">72dp</dimen>
+    <dimen name="xxxl_96dp">96dp</dimen>
+    <dimen name="huge_128dp">128dp</dimen>
+</resources>

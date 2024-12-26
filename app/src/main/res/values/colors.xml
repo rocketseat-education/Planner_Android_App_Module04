@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Product Colors -->
+    <color name="lime_300">#BEF264</color>
+    <color name="lime_950">#1A2E05</color>
+
+    <!-- Grayscale Colors -->
+    <color name="zinc_50">#FAFAFA</color>
+    <color name="zinc_100">#F4F4F5</color>
+    <color name="zinc_400">#A1A1AA</color>
+    <color name="zinc_500">#71717A</color>
+    <color name="zinc_700">#3F3F46</color>
+    <color name="zinc_800">#27272A</color>
+    <color name="zinc_900">#18181B</color>
+    <color name="zinc_950">#09090B</color>
+</resources>

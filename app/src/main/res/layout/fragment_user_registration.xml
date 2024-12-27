@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/md"
+    android:layout_margin="@dimen/md_16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.UserRegistrationFragment">
 
@@ -28,9 +28,9 @@
         app:layout_constraintTop_toBottomOf="@id/tvUserRegistrationTitle">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            app:cardCornerRadius="64dp">
+            android:layout_width="@dimen/huge_128dp"
+            android:layout_height="@dimen/huge_128dp"
+            app:cardCornerRadius="@dimen/xl_64dp">
 
             <ImageView
                 android:id="@+id/ivAddPhoto"
@@ -45,7 +45,7 @@
             android:id="@+id/tilName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/md">
+            android:layout_marginVertical="@dimen/md_16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tietName"
@@ -59,7 +59,7 @@
             android:id="@+id/tilEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/md">
+            android:layout_marginVertical="@dimen/md_16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tietEmail"
@@ -73,7 +73,7 @@
             android:id="@+id/tilPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/md">
+            android:layout_marginVertical="@dimen/md_16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tietPhone"

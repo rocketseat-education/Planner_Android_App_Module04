@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/md_16dp"
+    android:background="@color/zinc_800"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.UpdatePlannerActivityDialogFragment">
+
+    <TextView
+        android:id="@+id/tvUpdatePlannerActivityTitle"
+        style="@style/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/alterar_atividade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llUpdatedPlannerActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xm_32dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUpdatePlannerActivityTitle">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUpdatedPlannerActivityName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/sm_8dp"
+            app:boxBackgroundColor="@color/zinc_950"
+            app:startIconDrawable="@drawable/ic_tag">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietUpdatedPlannerActivityName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences"
+                tools:text="Jantar" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUpdatedPlannerActivityDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/sm_8dp"
+            app:boxBackgroundColor="@color/zinc_950"
+            app:startIconDrawable="@drawable/ic_calendar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietUpdatedPlannerActivityDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="20 de agosto" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUpdatedPlannerActivityTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/sm_8dp"
+            app:boxBackgroundColor="@color/zinc_950"
+            app:startIconDrawable="@drawable/ic_clock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietUpdatedPlannerActivityTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="21:00" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSaveUpdatedPlannerActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/md_16dp"
+        android:text="@string/salvar_atividade"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:backgroundTint="@color/lime_300"
+        android:textColor="@color/lime_950"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llUpdatedPlannerActivity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

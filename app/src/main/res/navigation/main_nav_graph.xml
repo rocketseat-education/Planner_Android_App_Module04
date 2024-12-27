@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/initialLoadingFragment">
+
+    <fragment
+        android:id="@+id/initialLoadingFragment"
+        android:name="com.rocketseat.planner.ui.InitialLoadingFragment"
+        android:label="fragment_initial_loading"
+        tools:layout="@layout/fragment_initial_loading" >
+        <action
+            android:id="@+id/action_initialLoadingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_initialLoadingFragment_to_userRegistrationFragment"
+            app:destination="@id/userRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.rocketseat.planner.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/userRegistrationFragment"
+        android:name="com.rocketseat.planner.ui.UserRegistrationFragment"
+        android:label="fragment_user_registration"
+        tools:layout="@layout/fragment_user_registration" >
+        <action
+            android:id="@+id/action_userRegistrationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

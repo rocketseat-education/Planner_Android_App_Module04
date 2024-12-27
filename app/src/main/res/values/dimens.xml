@@ -2,4 +2,5 @@
 <resources>
     <dimen name="md">16dp</dimen>
     <dimen name="sm">8dp</dimen>
+    <dimen name="lg">24dp</dimen>
 </resources>

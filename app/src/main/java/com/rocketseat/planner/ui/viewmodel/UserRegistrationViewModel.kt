@@ -2,6 +2,7 @@ package com.rocketseat.planner.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.rocketseat.planner.data.datasource.UserRegistrationLocalDataSource
 import com.rocketseat.planner.data.di.MainServiceLocator
 import com.rocketseat.planner.data.model.Profile
@@ -9,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class UserRegistrationViewModel: ViewModel() {
 
@@ -21,6 +23,14 @@ class UserRegistrationViewModel: ViewModel() {
 
     private val _profile: MutableStateFlow<Profile> = MutableStateFlow(Profile())
     val profile: StateFlow<Profile> = _profile.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            userRegistrationLocalDataSource.profile.collect { profile ->
+                _profile.value = profile
+            }
+        }
+    }
 
     fun getIsUserRegistered(): Boolean {
         return userRegistrationLocalDataSource.getUserRegistered()
@@ -50,5 +60,12 @@ class UserRegistrationViewModel: ViewModel() {
         }
 
         Log.d("UserRegistrationViewModel", "updateProfile: ${_profile.value}")
+    }
+
+    fun saveProfile() {
+        viewModelScope.launch {
+            userRegistrationLocalDataSource.saveProfile(profile = profile.value)
+            userRegistrationLocalDataSource.saveIsUserRegistered(isUserRegistered = true)
+        }
     }
 }

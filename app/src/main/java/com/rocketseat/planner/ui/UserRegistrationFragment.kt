@@ -30,6 +30,7 @@ class UserRegistrationFragment : Fragment() {
     private val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         if(uri != null) {
             binding.ivAddPhoto.setImageURI(uri)
+            userRegistrationViewModel.updateProfile(image = uri.toString())
         } else {
             Toast.makeText(
                 requireContext(),
@@ -76,7 +77,7 @@ class UserRegistrationFragment : Fragment() {
             }
 
             btnSaveUser.setOnClickListener {
-                userRegistrationViewModel.saveIsUserRegistered(isUserRegistered = true)
+                userRegistrationViewModel.saveProfile()
                 navController.navigate(R.id.action_userRegistrationFragment_to_homeFragment)
             }
         }

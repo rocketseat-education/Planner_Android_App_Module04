@@ -1,11 +1,13 @@
 package com.rocketseat.planner.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rocketseat.planner.data.datasource.AuthenticationLocalDataSource
 import com.rocketseat.planner.data.datasource.UserRegistrationLocalDataSource
 import com.rocketseat.planner.data.di.MainServiceLocator
 import com.rocketseat.planner.data.model.Profile
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -53,6 +55,7 @@ class UserRegistrationViewModel: ViewModel() {
                     tokenExpirationDateTime?.let { tokenExpirationDateTime ->
                         val dataTimeNow = System.currentTimeMillis()
                         _isTokenValid.value = tokenExpirationDateTime >= dataTimeNow
+                        Log.d("CheckIsTokenValid", "viewModelScope: isTokenValid: $isTokenValid")
                     }
                     delay(5_000)
                 }
@@ -84,16 +87,22 @@ class UserRegistrationViewModel: ViewModel() {
         }
     }
 
-    fun saveProfile() {
+    fun saveProfile(onCompleted: () -> Unit) {
         viewModelScope.launch {
-            userRegistrationLocalDataSource.saveProfile(profile = profile.value)
-            userRegistrationLocalDataSource.saveIsUserRegistered(isUserRegistered = true)
+            async {
+                userRegistrationLocalDataSource.saveProfile(profile = profile.value)
+                userRegistrationLocalDataSource.saveIsUserRegistered(isUserRegistered = true)
+                authenticationLocalDataSource.insertToken(token = mockToken)
+                _isTokenValid.value = true
+            }.await()
+            onCompleted()
         }
     }
 
     fun obtainNewToken() {
         viewModelScope.launch {
             authenticationLocalDataSource.insertToken(mockToken)
+            _isTokenValid.value = true
         }
     }
 }

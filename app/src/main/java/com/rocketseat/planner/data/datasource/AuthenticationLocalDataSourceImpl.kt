@@ -15,7 +15,7 @@ private const val TOKEN_KEY = "token"
 private val TOKEN_PREFERENCES_KEY = stringPreferencesKey(TOKEN_KEY)
 private const val EXPIRATION_DATE_TIME_KEY = "expiration_datetime"
 private val EXPIRATION_DATE_TIME_PREFERENCES_KEY = longPreferencesKey(EXPIRATION_DATE_TIME_KEY)
-private const val ADDITION_EXPIRATION_DATETIME_MILLIS = 10_000
+private const val ADDITION_EXPIRATION_DATETIME_MILLIS = 60_000 * 60
 
 class AuthenticationLocalDataSourceImpl(
     private val applicationContext: Context

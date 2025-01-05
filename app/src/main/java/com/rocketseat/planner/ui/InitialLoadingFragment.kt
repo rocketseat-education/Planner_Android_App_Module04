@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -21,7 +22,7 @@ class InitialLoadingFragment : Fragment() {
 
     private val navController by lazy { findNavController() }
 
-    private val userRegistrationViewModel by viewModels<UserRegistrationViewModel>()
+    private val userRegistrationViewModel by activityViewModels<UserRegistrationViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

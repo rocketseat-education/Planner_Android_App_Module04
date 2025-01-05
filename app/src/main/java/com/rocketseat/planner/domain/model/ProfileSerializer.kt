@@ -1,4 +1,4 @@
-package com.rocketseat.planner.data.model
+package com.rocketseat.planner.domain.model
 
 import androidx.datastore.core.Serializer
 import kotlinx.serialization.SerializationException

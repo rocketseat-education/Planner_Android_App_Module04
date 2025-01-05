@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
-import com.rocketseat.planner.data.model.Profile
-import com.rocketseat.planner.data.model.ProfileSerializer
+import com.rocketseat.planner.domain.model.Profile
+import com.rocketseat.planner.domain.model.ProfileSerializer
 import kotlinx.coroutines.flow.Flow
 
 private const val PROFILE_FILE_NAME = "profile.db"

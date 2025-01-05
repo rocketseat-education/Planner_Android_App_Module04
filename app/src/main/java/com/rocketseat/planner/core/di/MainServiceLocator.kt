@@ -7,6 +7,8 @@ import com.rocketseat.planner.data.database.PlannerActivityDao
 import com.rocketseat.planner.data.database.PlannerActivityDatabase
 import com.rocketseat.planner.data.datasource.AuthenticationLocalDataSource
 import com.rocketseat.planner.data.datasource.AuthenticationLocalDataSourceImpl
+import com.rocketseat.planner.data.datasource.PlannerActivityLocalDataSource
+import com.rocketseat.planner.data.datasource.PlannerActivityLocalDataSourceImpl
 import com.rocketseat.planner.data.datasource.UserRegistrationLocalDataSource
 import com.rocketseat.planner.data.datasource.UserRegistrationLocalDataSourceImpl
 
@@ -35,6 +37,12 @@ object MainServiceLocator {
         ).build()
 
         database.plannerActivityDao()
+    }
+
+    val plannerActivityLocalDataSource: PlannerActivityLocalDataSource by lazy {
+        PlannerActivityLocalDataSourceImpl(
+            plannerActivityDao = plannerActivityDao
+        )
     }
 
     fun initializer(application: Application) {

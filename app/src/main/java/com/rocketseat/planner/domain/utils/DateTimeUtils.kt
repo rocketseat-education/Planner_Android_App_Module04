@@ -8,7 +8,7 @@ private val sdfPlannerActivityDateTime = SimpleDateFormat("EEE dd' \n'HH:mm", Lo
 private val sdfPlannerActivityDate = SimpleDateFormat("dd 'de' MMMM", Locale("pt", "BR"))
 private val sdfPlannerActivityTime = SimpleDateFormat("HH:mm", Locale("pt", "BR"))
 
-fun createCalendarFromTimeMillis(timeMillis: Long): Calendar {
+fun createCalendarFromTimeInMillis(timeMillis: Long): Calendar {
     val calendar = Calendar.getInstance()
     calendar.timeInMillis = timeMillis
     return calendar

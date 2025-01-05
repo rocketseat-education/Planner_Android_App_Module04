@@ -1,4 +1,4 @@
-package com.rocketseat.planner.data.model
+package com.rocketseat.planner.domain.model
 
 import kotlinx.serialization.Serializable
 

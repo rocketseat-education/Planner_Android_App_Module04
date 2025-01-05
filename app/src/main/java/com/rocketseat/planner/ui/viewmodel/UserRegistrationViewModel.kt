@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.rocketseat.planner.data.datasource.AuthenticationLocalDataSource
 import com.rocketseat.planner.data.datasource.UserRegistrationLocalDataSource
 import com.rocketseat.planner.core.di.MainServiceLocator
-import com.rocketseat.planner.data.model.Profile
+import com.rocketseat.planner.domain.model.Profile
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

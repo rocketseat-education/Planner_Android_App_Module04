@@ -11,11 +11,16 @@ import com.rocketseat.planner.data.datasource.PlannerActivityLocalDataSource
 import com.rocketseat.planner.data.datasource.PlannerActivityLocalDataSourceImpl
 import com.rocketseat.planner.data.datasource.UserRegistrationLocalDataSource
 import com.rocketseat.planner.data.datasource.UserRegistrationLocalDataSourceImpl
+import kotlinx.coroutines.Dispatchers
 
 object MainServiceLocator {
 
     private var _application: Application? = null
     private val application: Application get() = _application!!
+
+    val ioDispatcher by lazy { Dispatchers.IO }
+
+    val mainDispatcher by lazy { Dispatchers.Main }
 
     val userRegistrationLocalDataSource: UserRegistrationLocalDataSource by lazy {
         UserRegistrationLocalDataSourceImpl(

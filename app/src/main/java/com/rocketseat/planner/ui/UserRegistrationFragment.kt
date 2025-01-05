@@ -13,6 +13,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.rocketseat.planner.R
+import com.rocketseat.planner.data.utils.imageBitmapToBase64
+import com.rocketseat.planner.data.utils.imageUriToBitmap
 import com.rocketseat.planner.databinding.FragmentUserRegistrationBinding
 import com.rocketseat.planner.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.flow.collect
@@ -29,8 +31,12 @@ class UserRegistrationFragment : Fragment() {
 
     private val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         if(uri != null) {
-            binding.ivAddPhoto.setImageURI(uri)
-            userRegistrationViewModel.updateProfile(image = uri.toString())
+            val imageBitmap = requireContext().imageUriToBitmap(uri)
+            imageBitmap?.let{
+                val imageBase64 = imageBitmapToBase64(imageBitmap)
+                userRegistrationViewModel.updateProfile(image = imageBase64)
+                binding.ivAddPhoto.setImageURI(uri)
+            }
         } else {
             Toast.makeText(
                 requireContext(),

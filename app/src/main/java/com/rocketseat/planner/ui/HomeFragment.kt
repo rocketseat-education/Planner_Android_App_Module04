@@ -12,7 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.rocketseat.planner.R
-import com.rocketseat.planner.data.utils.imageBase64ToBitmap
+import com.rocketseat.planner.domain.utils.imageBase64ToBitmap
 import com.rocketseat.planner.databinding.FragmentHomeBinding
 import com.rocketseat.planner.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.flow.distinctUntilChanged

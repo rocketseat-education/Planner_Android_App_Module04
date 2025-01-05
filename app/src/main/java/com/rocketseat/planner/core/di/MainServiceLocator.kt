@@ -1,4 +1,4 @@
-package com.rocketseat.planner.data.di
+package com.rocketseat.planner.core.di
 
 import android.app.Application
 import com.rocketseat.planner.data.datasource.AuthenticationLocalDataSource

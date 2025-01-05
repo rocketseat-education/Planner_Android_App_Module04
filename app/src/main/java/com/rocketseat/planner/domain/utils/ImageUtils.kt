@@ -1,4 +1,4 @@
-package com.rocketseat.planner.data.utils
+package com.rocketseat.planner.domain.utils
 
 import android.content.Context
 import android.graphics.Bitmap

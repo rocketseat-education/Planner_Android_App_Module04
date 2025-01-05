@@ -14,8 +14,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.rocketseat.planner.R
-import com.rocketseat.planner.data.utils.imageBitmapToBase64
-import com.rocketseat.planner.data.utils.imageUriToBitmap
+import com.rocketseat.planner.domain.utils.imageBitmapToBase64
+import com.rocketseat.planner.domain.utils.imageUriToBitmap
 import com.rocketseat.planner.databinding.FragmentUserRegistrationBinding
 import com.rocketseat.planner.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.flow.collect

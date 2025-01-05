@@ -1,6 +1,10 @@
 package com.rocketseat.planner.core.di
 
 import android.app.Application
+import androidx.room.Room
+import com.rocketseat.planner.data.database.PLANNER_ACTIVITY_DATABASE_NAME
+import com.rocketseat.planner.data.database.PlannerActivityDao
+import com.rocketseat.planner.data.database.PlannerActivityDatabase
 import com.rocketseat.planner.data.datasource.AuthenticationLocalDataSource
 import com.rocketseat.planner.data.datasource.AuthenticationLocalDataSourceImpl
 import com.rocketseat.planner.data.datasource.UserRegistrationLocalDataSource
@@ -21,6 +25,16 @@ object MainServiceLocator {
         AuthenticationLocalDataSourceImpl(
             applicationContext = application.applicationContext
         )
+    }
+
+    val plannerActivityDao: PlannerActivityDao by lazy {
+        val database = Room.databaseBuilder(
+            application.applicationContext,
+            PlannerActivityDatabase::class.java,
+            PLANNER_ACTIVITY_DATABASE_NAME
+        ).build()
+
+        database.plannerActivityDao()
     }
 
     fun initializer(application: Application) {

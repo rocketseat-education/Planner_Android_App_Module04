@@ -17,6 +17,10 @@ class PlannerActivityLocalDataSourceImpl(
             }
         }
 
+    override fun insert(plannerActivity: PlannerActivity) {
+        plannerActivityDao.insert(plannerActivity.toEntity(id = 0))
+    }
+
     override fun getByUuid(uuid: String): PlannerActivity {
         return plannerActivityDao.getByUuid(uuid).toDomain()
     }

@@ -1,6 +1,6 @@
 package com.rocketseat.planner.data.datasource
 
 interface UserRegistrationLocalDataSource {
-    fun getUserRegistration(): Boolean
-    fun saveUserRegistration(isUserRegistered: Boolean)
+    fun getUserRegistered(): Boolean
+    fun saveIsUserRegistered(isUserRegistered: Boolean)
 }

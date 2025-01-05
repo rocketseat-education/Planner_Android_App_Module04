@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.rocketseat.planner.R
 import com.rocketseat.planner.databinding.FragmentUserRegistrationBinding
+import com.rocketseat.planner.ui.viewmodel.UserRegistrationViewModel
 
 class UserRegistrationFragment : Fragment() {
 
@@ -15,6 +17,8 @@ class UserRegistrationFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val navController by lazy { findNavController() }
+
+    private val userRegistrationViewModel by viewModels<UserRegistrationViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +32,8 @@ class UserRegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            // TODO: lógica da tela de cadastro de usuário
             btnSaveUser.setOnClickListener {
+                userRegistrationViewModel.saveIsUserRegistered(isUserRegistered = true)
                 navController.navigate(R.id.action_userRegistrationFragment_to_homeFragment)
             }
         }

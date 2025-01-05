@@ -13,11 +13,11 @@ class UserRegistrationLocalDataSourceImpl(
     val userRegistrationSharedPreference: SharedPreferences =
         applicationContext.getSharedPreferences(USER_REGISTRATION_FILE_NAME, Context.MODE_PRIVATE)
 
-    override fun getUserRegistration(): Boolean {
+    override fun getUserRegistered(): Boolean {
         return userRegistrationSharedPreference.getBoolean(IS_USER_REGISTERED, false)
     }
 
-    override fun saveUserRegistration(isUserRegistered: Boolean) {
+    override fun saveIsUserRegistered(isUserRegistered: Boolean) {
         with(userRegistrationSharedPreference.edit()) {
             putBoolean(IS_USER_REGISTERED, isUserRegistered)
             apply()

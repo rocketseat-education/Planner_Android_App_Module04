@@ -16,6 +16,7 @@ import com.rocketseat.planner.R
 import com.rocketseat.planner.domain.utils.imageBase64ToBitmap
 import com.rocketseat.planner.databinding.FragmentHomeBinding
 import com.rocketseat.planner.ui.component.PlannerActivityDatePickerDialogFragment
+import com.rocketseat.planner.ui.component.PlannerActivityTimePickerDialogFragment
 import com.rocketseat.planner.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -49,6 +50,18 @@ class HomeFragment : Fragment() {
                 ).show(
                     childFragmentManager,
                     PlannerActivityDatePickerDialogFragment.TAG
+                )
+            }
+
+            tietNewPlannerActivityTime.setOnClickListener {
+                PlannerActivityTimePickerDialogFragment(
+                    onConfirm = { hourOfDay, minute ->
+                        Toast.makeText(requireContext(), "$hourOfDay $minute", Toast.LENGTH_SHORT).show()
+                    },
+                    onCancel = {}
+                ).show(
+                    childFragmentManager,
+                    PlannerActivityTimePickerDialogFragment.TAG
                 )
             }
 

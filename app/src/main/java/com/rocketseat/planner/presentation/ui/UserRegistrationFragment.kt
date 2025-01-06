@@ -1,4 +1,4 @@
-package com.rocketseat.planner.ui
+package com.rocketseat.planner.presentation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,7 +17,7 @@ import com.rocketseat.planner.R
 import com.rocketseat.planner.domain.utils.imageBitmapToBase64
 import com.rocketseat.planner.domain.utils.imageUriToBitmap
 import com.rocketseat.planner.databinding.FragmentUserRegistrationBinding
-import com.rocketseat.planner.ui.viewmodel.UserRegistrationViewModel
+import com.rocketseat.planner.presentation.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 

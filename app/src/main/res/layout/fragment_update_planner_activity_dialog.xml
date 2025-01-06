@@ -6,7 +6,7 @@
     android:padding="@dimen/md_16dp"
     android:background="@color/zinc_800"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.UpdatePlannerActivityDialogFragment">
+    tools:context=".presentation.ui.UpdatePlannerActivityDialogFragment">
 
     <TextView
         android:id="@+id/tvUpdatePlannerActivityTitle"

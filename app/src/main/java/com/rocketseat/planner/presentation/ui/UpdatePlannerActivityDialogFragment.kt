@@ -1,4 +1,4 @@
-package com.rocketseat.planner.ui
+package com.rocketseat.planner.presentation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

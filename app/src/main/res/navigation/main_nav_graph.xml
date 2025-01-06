@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/initialLoadingFragment"
-        android:name="com.rocketseat.planner.ui.InitialLoadingFragment"
+        android:name="com.rocketseat.planner.presentation.ui.InitialLoadingFragment"
         android:label="fragment_initial_loading"
         tools:layout="@layout/fragment_initial_loading" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.rocketseat.planner.ui.HomeFragment"
+        android:name="com.rocketseat.planner.presentation.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/userRegistrationFragment"
-        android:name="com.rocketseat.planner.ui.UserRegistrationFragment"
+        android:name="com.rocketseat.planner.presentation.ui.UserRegistrationFragment"
         android:label="fragment_user_registration"
         tools:layout="@layout/fragment_user_registration" >
         <action

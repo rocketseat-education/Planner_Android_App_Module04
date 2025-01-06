@@ -1,4 +1,4 @@
-package com.rocketseat.planner.ui.viewmodel
+package com.rocketseat.planner.presentation.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

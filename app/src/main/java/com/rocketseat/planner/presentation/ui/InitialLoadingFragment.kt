@@ -1,4 +1,4 @@
-package com.rocketseat.planner.ui
+package com.rocketseat.planner.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.rocketseat.planner.R
 import com.rocketseat.planner.databinding.FragmentInitialLoadingBinding
-import com.rocketseat.planner.ui.viewmodel.UserRegistrationViewModel
+import com.rocketseat.planner.presentation.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

@@ -1,23 +1,23 @@
-package com.rocketseat.planner.ui
+package com.rocketseat.planner.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.rocketseat.planner.R
-import com.rocketseat.planner.domain.utils.imageBase64ToBitmap
 import com.rocketseat.planner.databinding.FragmentHomeBinding
-import com.rocketseat.planner.ui.component.PlannerActivityDatePickerDialogFragment
-import com.rocketseat.planner.ui.component.PlannerActivityTimePickerDialogFragment
-import com.rocketseat.planner.ui.viewmodel.UserRegistrationViewModel
+import com.rocketseat.planner.domain.utils.imageBase64ToBitmap
+import com.rocketseat.planner.presentation.ui.component.PlannerActivityAdapter
+import com.rocketseat.planner.presentation.ui.component.PlannerActivityDatePickerDialogFragment
+import com.rocketseat.planner.presentation.ui.component.PlannerActivityTimePickerDialogFragment
+import com.rocketseat.planner.presentation.ui.viewmodel.PlannerActivityViewModel
+import com.rocketseat.planner.presentation.ui.viewmodel.UserRegistrationViewModel
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 
@@ -27,6 +27,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val userRegistrationViewModel by activityViewModels<UserRegistrationViewModel>()
+    private val plannerActivityViewModel by activityViewModels<PlannerActivityViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +42,8 @@ class HomeFragment : Fragment() {
 
         setupObservers()
         with(binding) {
+            plannerActivityViewModel.fetchActivities()
+
             tietNewPlannerActivityDate.setOnClickListener {
                 PlannerActivityDatePickerDialogFragment(
                     onConfirm = { year, month, day ->
@@ -86,10 +89,21 @@ class HomeFragment : Fragment() {
             }
             launch {
                 userRegistrationViewModel.isTokenValid.distinctUntilChanged {
-                    old, new -> old == new
+                        old, new -> old == new
                 }.collect { isTokenValid ->
-                    Log.d("CheckIsTokenValid", "setupObservers: isTokenValid: $isTokenValid")
                     if(isTokenValid == false) showNewTokenSnackbar()
+                }
+            }
+            launch {
+                plannerActivityViewModel.activities.collect { activities ->
+                    with(binding) {
+                        if(rvPlannerActivities.adapter == null) {
+                            rvPlannerActivities.adapter = PlannerActivityAdapter()
+                        }
+                        (rvPlannerActivities.adapter as PlannerActivityAdapter).submitList(
+                            activities
+                        )
+                    }
                 }
             }
         }
@@ -99,7 +113,6 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 
     private fun showNewTokenSnackbar() {
         Snackbar.make(requireView(), "Oops... O seu token expirou.", Snackbar.LENGTH_INDEFINITE)

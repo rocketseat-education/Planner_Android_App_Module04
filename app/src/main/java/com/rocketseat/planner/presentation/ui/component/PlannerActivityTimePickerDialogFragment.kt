@@ -1,4 +1,4 @@
-package com.rocketseat.planner.ui.component
+package com.rocketseat.planner.presentation.ui.component
 
 import android.app.Dialog
 import android.app.TimePickerDialog

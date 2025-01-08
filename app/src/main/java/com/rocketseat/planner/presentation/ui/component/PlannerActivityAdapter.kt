@@ -10,7 +10,10 @@ import com.rocketseat.planner.databinding.ItemPlannerActitivityBinding
 import com.rocketseat.planner.domain.model.PlannerActivity
 import com.rocketseat.planner.R
 
-class PlannerActivityAdapter:
+class PlannerActivityAdapter(
+    private val onClickPlannerActivity: (selectedActivity: PlannerActivity) -> Unit,
+    private val onChangeIsCompleted: (updateIsCompleted: Boolean, selectedActivity: PlannerActivity) -> Unit
+):
     ListAdapter<PlannerActivity, PlannerActivityAdapter.ViewHolder>(PlannerActivityDiffCallBack()) {
 
     override fun onCreateViewHolder(
@@ -31,19 +34,30 @@ class PlannerActivityAdapter:
         position: Int
     ) {
         val plannerActivity = getItem(position)
-        holder.bind(plannerActivity = plannerActivity)
+        holder.bind(
+            plannerActivity = plannerActivity,
+            onClickPlannerActivity = onClickPlannerActivity,
+            onChangeIsCompleted = onChangeIsCompleted
+        )
     }
 
     class ViewHolder(private val binding: ItemPlannerActitivityBinding):
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(plannerActivity: PlannerActivity) {
+        fun bind(
+            plannerActivity: PlannerActivity,
+            onClickPlannerActivity: (selectedActivity: PlannerActivity) -> Unit,
+            onChangeIsCompleted: (updateIsCompleted: Boolean, selectedActivity: PlannerActivity) -> Unit
+        ) {
             with(binding) {
+                clPlannerActivityContainer.setOnClickListener {
+                    onClickPlannerActivity(plannerActivity)
+                }
                 tvName.text = plannerActivity.name
                 tvDateTime.text = plannerActivity.dateTimeString
-                ivStatus.setImageResource(
+                ivIsCompleted.setImageResource(
                     if(plannerActivity.isCompleted) {
-                        ivStatus.setColorFilter(
+                        ivIsCompleted.setColorFilter(
                             ContextCompat.getColor(
                                 binding.root.context,
                                 R.color.lime_300
@@ -51,10 +65,13 @@ class PlannerActivityAdapter:
                         )
                         R.drawable.ic_circle_check
                     } else {
-                        ivStatus.clearColorFilter()
+                        ivIsCompleted.clearColorFilter()
                         R.drawable.ic_circle_dashed
                     }
                 )
+                ivIsCompleted.setOnClickListener {
+                    onChangeIsCompleted(!plannerActivity.isCompleted, plannerActivity)
+                }
             }
         }
     }

@@ -160,7 +160,22 @@ class HomeFragment : Fragment() {
                 plannerActivityViewModel.activities.collect { activities ->
                     with(binding) {
                         if(rvPlannerActivities.adapter == null) {
-                            rvPlannerActivities.adapter = PlannerActivityAdapter()
+                            rvPlannerActivities.adapter = PlannerActivityAdapter(
+                                onClickPlannerActivity = { selectedActivity ->
+                                    UpdatePlannerActivityDialogFragment(
+                                        selectedActivity = selectedActivity,
+                                    ).show(
+                                        childFragmentManager,
+                                        UpdatePlannerActivityDialogFragment.TAG
+                                    )
+                                },
+                                onChangeIsCompleted = { updateIsCompleted, selectedActivity ->
+                                    plannerActivityViewModel.updateIsCompleted(
+                                        uuid = selectedActivity.uuid,
+                                        isCompleted = updateIsCompleted
+                                    )
+                                }
+                            )
                         }
                         (rvPlannerActivities.adapter as PlannerActivityAdapter).submitList(
                             activities

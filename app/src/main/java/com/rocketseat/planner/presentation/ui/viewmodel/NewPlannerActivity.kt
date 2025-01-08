@@ -5,7 +5,7 @@ data class NewPlannerActivity(
     val date: SetDate? = null,
     val time: SetTime? = null
 ) {
-    fun isFilled(): Boolean = name.isNullOrEmpty() && date == null && time == null
+    fun isFilled(): Boolean = !name.isNullOrEmpty() && date != null && time != null
 }
 
 data class SetDate(

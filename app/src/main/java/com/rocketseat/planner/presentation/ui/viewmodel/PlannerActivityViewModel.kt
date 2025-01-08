@@ -29,7 +29,7 @@ class PlannerActivityViewModel : ViewModel() {
     private val newActivity: MutableStateFlow<NewPlannerActivity> =
         MutableStateFlow(NewPlannerActivity())
 
-    fun updateNewActivityName(
+    fun updateNewActivity(
         name: String? = null,
         date: SetDate? = null,
         time: SetTime? = null

@@ -20,4 +20,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="confirmar">Confirmar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="oops_houve_uma_falha_ao_salvar_a_atividade">Oops... Houve uma falha ao salvar a atividade.</string>
 </resources>

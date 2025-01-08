@@ -52,6 +52,7 @@ class PlannerActivityViewModel : ViewModel() {
             currentUpdatedActivity?.let { currentUpdatedActivity ->
                 val updateDateTimeCalendar =
                     createCalendarFromTimeInMillis(currentUpdatedActivity.dateTime)
+
                 updateDateTimeCalendar.apply {
                     if (date != null) {
                         set(Calendar.YEAR, date.year)

@@ -9,6 +9,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.rocketseat.planner.R
 import com.rocketseat.planner.databinding.FragmentUpdatePlannerActivityDialogBinding
 import com.rocketseat.planner.domain.model.PlannerActivity
+import com.rocketseat.planner.domain.utils.createCalendarFromTimeInMillis
+import com.rocketseat.planner.domain.utils.toPlannerActivityDate
+import com.rocketseat.planner.domain.utils.toPlannerActivityTime
 
 class UpdatePlannerActivityDialogFragment(
     private val selectedActivity: PlannerActivity
@@ -29,7 +32,12 @@ class UpdatePlannerActivityDialogFragment(
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            // TODO: lógica de atualização de atividades
+            val selectActivityDateTimeCalendar =
+                createCalendarFromTimeInMillis(timeMillis = selectedActivity.dateTime)
+
+            tietUpdatedPlannerActivityName.setText(selectedActivity.name)
+            tietUpdatedPlannerActivityDate.setText(selectActivityDateTimeCalendar.toPlannerActivityDate())
+            tietUpdatedPlannerActivityTime.setText(selectActivityDateTimeCalendar.toPlannerActivityTime())
         }
     }
 

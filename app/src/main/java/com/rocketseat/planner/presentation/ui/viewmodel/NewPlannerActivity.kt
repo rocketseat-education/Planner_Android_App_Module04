@@ -9,12 +9,12 @@ data class NewPlannerActivity(
 }
 
 data class SetDate(
-    val dayOfMonth: Int? = null,
-    val month: Int? = null,
-    val year: Int? = null
+    val dayOfMonth: Int,
+    val month: Int,
+    val year: Int
 )
 
 data class SetTime(
-    val hourOfDay: Int? = null,
-    val minute: Int? = null
+    val hourOfDay: Int,
+    val minute: Int
 )

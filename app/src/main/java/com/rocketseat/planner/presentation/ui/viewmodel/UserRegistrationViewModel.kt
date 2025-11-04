@@ -48,18 +48,18 @@ class UserRegistrationViewModel: ViewModel() {
                     _profile.value = profile
                 }
             }
-            launch {
-                while (true) {
-                    val tokenExpirationDateTime =
-                        authenticationLocalDataSource.expirationDataTime.firstOrNull()
-                    tokenExpirationDateTime?.let { tokenExpirationDateTime ->
-                        val dataTimeNow = System.currentTimeMillis()
-                        _isTokenValid.value = tokenExpirationDateTime >= dataTimeNow
-                        Log.d("CheckIsTokenValid", "viewModelScope: isTokenValid: $isTokenValid")
-                    }
-                    delay(5_000)
-                }
-            }
+//            launch {
+//                while (true) {
+//                    val tokenExpirationDateTime =
+//                        authenticationLocalDataSource.expirationDataTime.firstOrNull()
+//                    tokenExpirationDateTime?.let { tokenExpirationDateTime ->
+//                        val dataTimeNow = System.currentTimeMillis()
+//                        _isTokenValid.value = tokenExpirationDateTime >= dataTimeNow
+//                        Log.d("CheckIsTokenValid", "viewModelScope: isTokenValid: $isTokenValid")
+//                    }
+//                    delay(5_000)
+//                }
+//            }
         }
     }
 

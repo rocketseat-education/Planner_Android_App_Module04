@@ -20,7 +20,18 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-test-debug"
+
+            buildConfigField("boolean", "LOG_ENABLED", "true")
+        }
         release {
+            applicationIdSuffix = ".release"
+            versionNameSuffix = "-prod-release"
+
+            buildConfigField("boolean", "LOG_ENABLED", "false")
+
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
@@ -39,6 +50,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
